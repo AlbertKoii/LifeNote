@@ -1,0 +1,36 @@
+import axios from "axios"
+import { useState , useEffect } from "react"
+
+
+
+
+interface NoteProp{
+    
+}
+
+
+const Note: React.FC<NoteProp> =()=>{
+
+    const [inner , setInner] = useState<[]>
+
+    const NoteInner = () =>{
+            const response = axios.get('http://localhost:3000/accounts')
+            setInner(response)
+
+            try(response === 200)
+        }
+        
+    }
+    
+    
+
+    
+    return(
+        <div>
+            
+
+        </div>
+    )
+}
+
+export default Note

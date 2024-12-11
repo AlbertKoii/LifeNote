@@ -1,0 +1,3 @@
+const handleShowCard = () => {
+    setShowNoteInputCard(true);
+  };
