@@ -57,7 +57,7 @@ const NoteInputCard = ({ onSubmit, onClose }: NoteInputCardProps) => {
                     accountST: null,
                     accountField: null,
                     accountInner: null,
-                    accountAmount: null,
+                    accountAmount: 0,
                 },
                 noteID: {
                     noteST: false,

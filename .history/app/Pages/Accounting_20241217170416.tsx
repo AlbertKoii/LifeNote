@@ -16,7 +16,7 @@ const Accounting: React.FC<AccountingProps> = () => {
       const response = await axios.get('http://localhost:3000/Notion');
       console.log(response.data);
 
-      if (response.status === 200 ) {
+      if (response.status === 200) {
         if (response.data) {
           setAccountData(response.data); 
         } else {
@@ -44,11 +44,11 @@ const Accounting: React.FC<AccountingProps> = () => {
             </div>
         </div>
         {accountData.length > 0 ?
-            accountData.map((item) => (
+            accountData.filter(item => !item.noteID || !item.noteID.noteInner).map((item) => (
             <div key={item.id} className="flex justify-center">
-                {item.accounting && item.accounting.accountField !== null && (
+                {item.accounting && (
                     <div className="grid grid-cols-4 gap-4 font-black">
-                        <Checkbox checked={item.accountST} />
+                        <Checkbox checked={item.accounting.accountST} />
                         <div className="flex justify-center">{item.accounting.accountInner}</div>
                         <div className="flex justify-center">{item.accounting.accountField}</div>
                         <div className="flex justify-center">{item.accounting.accountAmount}</div>
