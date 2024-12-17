@@ -54,14 +54,14 @@ const NoteInputCard = ({ onSubmit, onClose }: NoteInputCardProps) => {
                 id: Number,
                 date: new Date().toISOString(),
                 accounting: {
-                    accountST: null,
-                    accountField: null,
-                    accountInner: null,
-                    accountAmount: null,
+                    accountST: false,
+                    accountField: "飲食",
+                    accountInner: "",
+                    accountAmount: 0,
                 },
                 noteID: {
-                    noteST: false,
-                    noteInner: noteContent,
+                    noteST: null,
+                    noteInner: ,
                 },
                 onSubmit: ()=> {
                 },

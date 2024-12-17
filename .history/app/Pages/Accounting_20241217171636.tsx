@@ -46,9 +46,9 @@ const Accounting: React.FC<AccountingProps> = () => {
         {accountData.length > 0 ?
             accountData.map((item) => (
             <div key={item.id} className="flex justify-center">
-                {item.accounting && item.accounting.accountField !== null && (
+                {item.accounting.accontST !== null && (
                     <div className="grid grid-cols-4 gap-4 font-black">
-                        <Checkbox checked={item.accountST} />
+                        <Checkbox checked={item.accounting.accountST} />
                         <div className="flex justify-center">{item.accounting.accountInner}</div>
                         <div className="flex justify-center">{item.accounting.accountField}</div>
                         <div className="flex justify-center">{item.accounting.accountAmount}</div>

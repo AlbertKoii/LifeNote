@@ -8,7 +8,7 @@ interface AccountingProps {
 }
 
 const Accounting: React.FC<AccountingProps> = () => {
-  const [accountData, setAccountData] = useState<any[]>([]); 
+  const [accountData, setAccountData] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   const fetchItems = async () => {
@@ -16,7 +16,7 @@ const Accounting: React.FC<AccountingProps> = () => {
       const response = await axios.get('http://localhost:3000/Notion');
       console.log(response.data);
 
-      if (response.status === 200 ) {
+      if (response.status === 200) {
         if (response.data) {
           setAccountData(response.data); 
         } else {
@@ -31,7 +31,7 @@ const Accounting: React.FC<AccountingProps> = () => {
     }
   };
 
-  useEffect(() => { fetchItems(); }, []); 
+  useEffect(() => { fetchItems(); }, []);
 
   return (
     <div className="w-screen justify-center">
@@ -45,18 +45,18 @@ const Accounting: React.FC<AccountingProps> = () => {
         </div>
         {accountData.length > 0 ?
             accountData.map((item) => (
-            <div key={item.id} className="flex justify-center">
-                {item.accounting && item.accounting.accountField !== null && (
-                    <div className="grid grid-cols-4 gap-4 font-black">
-                        <Checkbox checked={item.accountST} />
-                        <div className="flex justify-center">{item.accounting.accountInner}</div>
-                        <div className="flex justify-center">{item.accounting.accountField}</div>
-                        <div className="flex justify-center">{item.accounting.accountAmount}</div>
-                    </div>
-                )} 
-            </div>
-        ))
-        : <div>Data Loading Failed</div>}
+                <div key={item.id} className="flex justify-center">
+                    {item.accounting && item.noteID?.noteInner === null && (
+                        <div className="grid grid-cols-4 gap-4 font-black">
+                            <Checkbox checked={item.accounting.accountST} />
+                            <div className="flex justify-center">{item.accounting.accountInner}</div>
+                            <div className="flex justify-center">{item.accounting.accountField}</div>
+                            <div className="flex justify-center">{item.accounting.accountAmount}</div>
+                        </div>
+                    )} 
+                </div>
+            ))
+            : <div>Data Loading Failed</div>}
     </div>
   );
 };
